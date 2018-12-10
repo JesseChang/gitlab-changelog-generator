@@ -7,6 +7,14 @@ src/dotnet-gitlab-changelog-gen/obj/Debug/netcoreapp2\.1/
 
 src/dotnet-gitlab-changelog-gen/obj/
 
+src/dotnet-gitlab-changelog-gen/\.vs/dotnet-gitlab-changelog-gen/v15/Server/sqlite3/
+
+src/dotnet-gitlab-changelog-gen/CHANGELOG\.md
+
+src/dotnet-gitlab-changelog-gen/dotnet-gitlab-changelog-gen\.1\.0\.0\.nupkg
+
+src/dotnet-gitlab-changelog-gen/dotnet-gitlab-changelog-gen\.nuspec
+
 src/dotnet-gitlab-changelog-gen/\.vs/dotnet-gitlab-changelog-gen/DesignTimeBuild/
 
 src/dotnet-gitlab-changelog-gen/\.vs/dotnet-gitlab-changelog-gen/v15/
