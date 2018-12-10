@@ -6,3 +6,9 @@ src/dotnet-gitlab-changelog-gen/bin/Debug/netcoreapp2\.1/
 src/dotnet-gitlab-changelog-gen/obj/Debug/netcoreapp2\.1/
 
 src/dotnet-gitlab-changelog-gen/obj/
+
+src/dotnet-gitlab-changelog-gen/\.vs/dotnet-gitlab-changelog-gen/DesignTimeBuild/
+
+src/dotnet-gitlab-changelog-gen/\.vs/dotnet-gitlab-changelog-gen/v15/
+
+src/dotnet-gitlab-changelog-gen/bin/Debug/
