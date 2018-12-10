@@ -12,7 +12,11 @@ This project is still at very begining stage and only generates closed issues in
 
 # Installation
 
-Please follow [Nate McMaster's blog](https://natemcmaster.com/blog/2018/05/12/dotnet-global-tools/) to build and install locally on your machine. Publishing to nuget will be next step.
+.Net CLI
+
+```shell
+dotnet tool install --global dotnet-gitlab-changelog-gen --version 1.0.0
+```
 
 # Usage
 
@@ -30,6 +34,6 @@ Options:
   -?|-h|--help                         Show help information
 
 Example:
-> dotnet gitlab-changelog-gen -t <access-token> -h gitlab.example.com -p 1 
+> dotnet gitlab-changelog-gen -t <access-token> -H gitlab.example.com -p 1 
 
 ```

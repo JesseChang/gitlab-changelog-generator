@@ -7,7 +7,14 @@
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <LangVersion>latest</LangVersion>
-    <PackageVersion>1.0.0-alpha-1</PackageVersion>
+    <PackageVersion>1.0.0</PackageVersion>
+    <Authors>Jesse Chang</Authors>
+    <Company />
+    <Description>A simple tool to generate Gitlab CHANGELOG by issues, milestons, tags, and others.</Description>
+    <PackageProjectUrl>https://github.com/JesseChang/gitlab-changelog-generator</PackageProjectUrl>
+    <PackageLicenseUrl>https://licenses.nuget.org/MIT</PackageLicenseUrl>
+    <Copyright>Copyright © Jesse Chang 2018</Copyright>
+    <PackageTags>gitlab</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
