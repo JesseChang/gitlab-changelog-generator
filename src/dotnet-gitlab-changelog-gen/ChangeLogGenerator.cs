@@ -40,8 +40,8 @@ namespace dotnet_gitlab_changelog_gen
             bug = string.IsNullOrEmpty(Bug)?"bug":Bug;
             enhance = string.IsNullOrEmpty(Enhance)?"enhance":Enhance;
             int temp;
-            page = string.IsNullOrEmpty(Page)?string.Empty:int.TryParse(Page, out temp)?Page:"1";
-            perPage = string.IsNullOrEmpty(PerPage)?string.Empty:int.TryParse(PerPage, out temp)?PerPage:"1";
+            page = string.IsNullOrEmpty(Page)?"1":int.TryParse(Page, out temp)?Page:"1";
+            perPage = string.IsNullOrEmpty(PerPage)?"20":int.TryParse(PerPage, out temp)?PerPage:"20";
         }
         public async Task GenDocAsync()
         {
