@@ -17,13 +17,17 @@ namespace dotnet_gitlab_changelog_gen
         readonly string feature;
         readonly string bug;
         readonly string enhance;
+        readonly string page;
+        readonly string perPage;
 
         public ChangeLogGenerator(string AccessToken,
                                     string Host,
                                     string ProjectId,
                                     string Feature,
                                     string Bug,
-                                    string Enhance)
+                                    string Enhance,
+                                    string Page,
+                                    string PerPage)
         {
             access_token = AccessToken;
 
@@ -35,6 +39,9 @@ namespace dotnet_gitlab_changelog_gen
             feature = string.IsNullOrEmpty(Feature)?"feature":Feature;
             bug = string.IsNullOrEmpty(Bug)?"bug":Bug;
             enhance = string.IsNullOrEmpty(Enhance)?"enhance":Enhance;
+            int temp;
+            page = string.IsNullOrEmpty(Page)?string.Empty:int.TryParse(Page, out temp)?Page:"1";
+            perPage = string.IsNullOrEmpty(PerPage)?string.Empty:int.TryParse(PerPage, out temp)?PerPage:"1";
         }
         public async Task GenDocAsync()
         {
@@ -51,7 +58,7 @@ namespace dotnet_gitlab_changelog_gen
             client.DefaultRequestHeaders.Add("PRIVATE-TOKEN", access_token);
             //we find all scope and closed issues
             Console.WriteLine("Contacting Gitlab instance...");
-            HttpResponseMessage response = await client.GetAsync($"api/v4/projects/{projectId}/issues?scope=all&state=closed");
+            HttpResponseMessage response = await client.GetAsync($"api/v4/projects/{projectId}/issues?scope=all&state=closed&page={page}&per_page={perPage}");
             if (!response.IsSuccessStatusCode)
             {
                 throw new Exception("Contact Gitlab fail, pleae check your internet and access_token.");    
@@ -64,17 +71,17 @@ namespace dotnet_gitlab_changelog_gen
             result += "\n## 🔥 Features\n\n";
             issueData.Where(i => i.labels.Contains(feature)).ToList().ForEach(i => 
             {
-                result += "* " + i.title + " #" + i.iid + "\n";
+                result += "1. " + i.title + " #" + i.iid + "\n";
             });
             result += "\n## 🐞 Bugs\n\n";
             issueData.Where(i => i.labels.Contains(bug)).ToList().ForEach(i => 
             {
-                result += "* " + i.title + " #" + i.iid + "\n";
+                result += "1. " + i.title + " #" + i.iid + "\n";
             });
             result += "\n## 🚀 Enhances\n\n";
             issueData.Where(i => i.labels.Contains(enhance)).ToList().ForEach(i => 
             {
-                result += "* " + i.title + " #" + i.iid + "\n";
+                result += "1. " + i.title + " #" + i.iid + "\n";
             });
             return result;
         }
