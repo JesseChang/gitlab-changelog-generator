@@ -26,6 +26,10 @@ namespace dotnet_gitlab_changelog_gen
         public string Bug {get;}
         [Option("-e|--enhance <enhance_tag>", CommandOptionType.SingleValue, Description = "Enhance tag name, default is <enhance>")]
         public string Enhance {get;}
+        [Option("--page <page_number>", CommandOptionType.SingleValue, Description = "Page number (default: 1)")]
+        public string Page {get;}
+        [Option("--perpage <per_page_number>", CommandOptionType.SingleValue, Description = "Number of items to list per page (default: 20, max: 100)")]
+        public string PerPage {get;}
 
         public async Task<int> OnExecute(CommandLineApplication application, IConsole console)
         {
@@ -34,7 +38,7 @@ namespace dotnet_gitlab_changelog_gen
                 return Program.ERROR;
             }
             //gen doc here
-            var docGenner = new ChangeLogGenerator(Token,Host,ProjectId,Feature,Bug,Enhance);
+            var docGenner = new ChangeLogGenerator(Token,Host,ProjectId,Feature,Bug,Enhance, Page, PerPage);
             await docGenner.GenDocAsync();
             console.WriteLine("CHANGELOG.md has been generated.");
             return Program.OK;
